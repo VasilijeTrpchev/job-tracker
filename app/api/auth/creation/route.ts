@@ -7,9 +7,7 @@ export async function GET() {
   const user = await getUser();
 
   if (!user || user === null || !user.id) {
-    return NextResponse.redirect(
-      "https://job-tracker-phi-nine.vercel.app/error"
-    );
+    throw new Error("something went wrong");
   }
 
   let dbUser = await prisma.user.findUnique({ where: { id: user.id } });
@@ -27,7 +25,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect(
-    "https://job-tracker-702gz0cve-vasilijetrpcev1-3656s-projects.vercel.app/dashboard"
-  );
+  return NextResponse.redirect("http://localhost:3000/dashboard");
 }
