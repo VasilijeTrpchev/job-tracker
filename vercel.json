@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/open",
-      "destination": "https://job-tracker-phi-nine.vercel.app",
-      "permanent": false
-    }
-  ]
-}
