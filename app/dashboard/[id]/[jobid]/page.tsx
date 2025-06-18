@@ -15,7 +15,7 @@ interface PageProps {
 }
 
 export default async function page({ params }: PageProps) {
-  const { jobId } = await params;
+  const { id } = await params;
 
   return (
     <div className="flex items-center justify-center  px-4 mt-20">
@@ -34,7 +34,7 @@ export default async function page({ params }: PageProps) {
             <Link href={`/dashboard`}>Cancel</Link>
           </Button>
           <form action={RemoveJobAction}>
-            <input type="hidden" name="removePost" value={jobId} />
+            <input type="hidden" name="removePost" value={id} />
             <Button
               className="cursor-pointer"
               type="submit"
