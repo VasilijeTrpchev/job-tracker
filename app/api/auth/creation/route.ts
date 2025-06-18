@@ -28,6 +28,6 @@ export async function GET() {
   }
 
   return NextResponse.redirect(
-    "https://job-tracker-phi-nine.vercel.app/dashboard"
+    "https://job-tracker-702gz0cve-vasilijetrpcev1-3656s-projects.vercel.app/dashboard"
   );
 }
