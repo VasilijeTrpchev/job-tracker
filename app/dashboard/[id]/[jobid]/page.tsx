@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import React from "react";
 
-const page = ({ params }: { params: { id: string } }) => {
+const page = ({ params }: { params: { id: string; jobid: string } }) => {
   return (
     <div className="flex items-center justify-center  px-4 mt-20">
       <Card className="w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl p-6 ">

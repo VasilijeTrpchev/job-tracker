@@ -120,7 +120,7 @@ const page = async () => {
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full" variant="destructive" asChild>
-                      <Link href={`/dashboard/${j.id}/delete`}> Remove</Link>
+                      <Link href={`/dashboard/${j.id}/jobid`}> Remove</Link>
                     </Button>
                   </CardFooter>
                 </Card>
