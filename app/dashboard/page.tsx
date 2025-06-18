@@ -41,7 +41,7 @@ async function getData(userId: string) {
   return data;
 }
 
-const page = async () => {
+export default async function page() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) {
@@ -120,7 +120,7 @@ const page = async () => {
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full" variant="destructive" asChild>
-                      <Link href={`/dashboard/${j.id}/jobid`}> Remove</Link>
+                      <Link href={`/dashboard/${j.id}/${j.id}`}> Remove</Link>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -131,6 +131,4 @@ const page = async () => {
       </div>
     </>
   );
-};
-
-export default page;
+}

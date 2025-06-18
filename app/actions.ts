@@ -5,7 +5,7 @@ import { parseWithZod } from "@conform-to/zod";
 import { JobPostSchema } from "./utils/zodSchemas";
 import { prisma } from "./utils/db";
 
-export async function CreateJobAction(prevState: any, formData: FormData) {
+export async function CreateJobAction(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
@@ -21,7 +21,7 @@ export async function CreateJobAction(prevState: any, formData: FormData) {
     return submission.reply();
   }
 
-  const response = await prisma.job.create({
+  await prisma.job.create({
     data: {
       companyName: submission.value.companyName,
       jobTitle: submission.value.jobTitle,
@@ -34,7 +34,7 @@ export async function CreateJobAction(prevState: any, formData: FormData) {
   return redirect("/dashboard");
 }
 
-export async function UpdateJobAction(prevState: any, formData: FormData) {
+export async function UpdateJobAction(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
@@ -50,7 +50,7 @@ export async function UpdateJobAction(prevState: any, formData: FormData) {
     return submission.reply();
   }
 
-  const response = await prisma.job.update({
+  await prisma.job.update({
     where: {
       id: formData.get("jobId") as string,
       userId: user.id,
@@ -74,7 +74,7 @@ export async function RemoveJobAction(formData: FormData) {
     return redirect("/api/auth/login");
   }
 
-  const response = await prisma.job.delete({
+  await prisma.job.delete({
     where: {
       id: formData.get("removePost") as string,
       userId: user.id,

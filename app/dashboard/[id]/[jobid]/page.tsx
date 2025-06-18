@@ -10,7 +10,13 @@ import {
 import Link from "next/link";
 import React from "react";
 
-const page = ({ params }: { params: { id: string; jobid: string } }) => {
+interface PageProps {
+  params: Promise<{ id: string; jobId: string }>;
+}
+
+export default async function page({ params }: PageProps) {
+  const { jobId } = await params;
+
   return (
     <div className="flex items-center justify-center  px-4 mt-20">
       <Card className="w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl p-6 ">
@@ -28,7 +34,7 @@ const page = ({ params }: { params: { id: string; jobid: string } }) => {
             <Link href={`/dashboard`}>Cancel</Link>
           </Button>
           <form action={RemoveJobAction}>
-            <input type="hidden" name="removePost" value={params.id} />
+            <input type="hidden" name="removePost" value={jobId} />
             <Button
               className="cursor-pointer"
               type="submit"
@@ -41,6 +47,4 @@ const page = ({ params }: { params: { id: string; jobid: string } }) => {
       </Card>
     </div>
   );
-};
-
-export default page;
+}

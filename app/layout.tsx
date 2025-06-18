@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en">
-        <body className={`font-sans`}>{children}</body>
+        <body className="font-sans">{children}</body>
       </html>
     </AuthProvider>
   );

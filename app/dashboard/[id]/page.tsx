@@ -1,3 +1,4 @@
+"use server";
 import EditJobPostForm from "@/app/components/EditJobPostForm";
 import { prisma } from "@/app/utils/db";
 import { Button } from "@/components/ui/button";
@@ -17,9 +18,13 @@ async function getData(id: string) {
   }
   return data;
 }
+interface PageProps {
+  params: Promise<{ id: string; jobId: string }>;
+}
+export default async function page({ params }: PageProps) {
+  const { id } = await params;
 
-const page = async ({ params }: { params: { id: string } }) => {
-  const data = await getData(params.id);
+  const data = await getData(id);
   return (
     <div>
       <div className="flex items-center m-4 ">
@@ -33,6 +38,4 @@ const page = async ({ params }: { params: { id: string } }) => {
       <EditJobPostForm data={data} />
     </div>
   );
-};
-
-export default page;
+}
