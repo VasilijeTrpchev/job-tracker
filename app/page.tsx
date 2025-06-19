@@ -35,7 +35,7 @@ export default async function Home() {
           <>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white transition"
-              variant="outline"
+              variant="secondary"
             >
               <LogoutLink>Log out</LogoutLink>
             </Button>
